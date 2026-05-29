@@ -80,16 +80,21 @@
 
                 <!-- Left Side: Form Section -->
                 <div class="col-lg-6 p-4 p-md-5 bg-white">
+
+                    @if(session('success'))
+                        {{ session('success') }}
+                    
+                    @endif
                     <h3 class="fw-bold mb-4">Send us a Message</h3>
 
-                    <form action="#" method="POST">
+                    <form action="/contact" method="POST">
                         @csrf <!-- Laravel CSRF Token -->
 
                         <div class="row">
                             <!-- Floating Label Full Name -->
                             <div class="col-md-6 mb-3">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-light border-0" id="name" name="name"
+                                    <input type="text" class="form-control bg-light border-0" id="name" name="name" 
                                         placeholder="John Doe" required>
                                     <label for="name" class="text-muted">Full Name</label>
                                 </div>
@@ -99,7 +104,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-floating">
                                     <input type="email" class="form-control bg-light border-0" id="email" name="email"
-                                        placeholder="name@example.com" required>
+                                        placeholder="name@example.com">
                                     <label for="email" class="text-muted">Email Address</label>
                                 </div>
                             </div>
@@ -109,7 +114,7 @@
                         <div class="mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control bg-light border-0" id="subject" name="subject"
-                                    placeholder="Subject" required>
+                                    placeholder="Subject">
                                 <label for="subject" class="text-muted">Subject</label>
                             </div>
                         </div>

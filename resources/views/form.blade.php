@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-    <div class="container-fluid min-vh-100 d-flex align-items-center" style="background-color: #f8f9fa;">
+    <div class="container-fluid min-vh-100 d-flex align-items-center m-5" style="background-color: #f8f9fa;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-5">

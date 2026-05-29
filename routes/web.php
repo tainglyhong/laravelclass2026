@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -33,17 +35,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/about', [PageController::class, 'about']);
-Route::get('/contact', [PageController::class, 'contact']);
+
 Route::get('/services', [PageController::class, 'services']);
 Route::get('/products', [PageController::class, 'products']);
 
 Route::get('/profile', [ProfileController::class, 'profile']);
 
-// Route::get('/form', function(){
-//     return view('form');
-// });
+// user
+Route::get('/user', [UserController::class, 'index']);
 
+// form
 Route::get('/form', [FormController::class, 'create']);
-
 Route::post('/form/store', [FormController::class, 'store']);
+
+// Contact
+Route::get('/dashboard-contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'create']);
+
+Route::post('/contact', [ContactController::class, 'store']);
 
