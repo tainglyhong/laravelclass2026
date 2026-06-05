@@ -95,7 +95,6 @@
 
     @include('components.sidebar')
 
-    
 
     <!-- Main Content -->
     @yield('main')

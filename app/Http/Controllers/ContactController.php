@@ -38,13 +38,13 @@ class ContactController extends Controller
             ->with('success', 'Your message has been sent successfully!');
     }
 
-    public function edit($id)
+    public function edit(int $id)
     {
         $contact = Contact::find($id);
         return view('contact-edit', compact('contact'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,int $id)
     {
         $contact = Contact::findOrFail($id);
 
@@ -59,7 +59,7 @@ class ContactController extends Controller
             ->with('success', 'Contact updated successfully');
     }
 
-    public function destroy($id) 
+    public function destroy(int $id) 
     {
         $contact = Contact::find($id);
 

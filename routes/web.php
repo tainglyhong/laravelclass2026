@@ -53,6 +53,8 @@ Route::post('/form/store', [FormController::class, 'store']);
 Route::get('/contact-table', [ContactController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/contact', [ContactController::class, 'store']);
+
+// Update & Delete
 Route::get('/contact-edit/{id}/edit', [ContactController::class, 'edit']);
 Route::put('/contact/{id}/', [ContactController::class, 'update']);
 Route::delete('/contact/{id}', [ContactController::class, 'destroy']);
