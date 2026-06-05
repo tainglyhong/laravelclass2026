@@ -6,7 +6,7 @@
 
         <div class="top-navbar d-flex justify-content-between align-items-center">
             <h4 class="mb-0 fw-bold text-dark">
-                <i class="bi bi-envelope-fill"></i> Contact Messages
+                <i class="bi bi-envelope-fill"></i> Student Information
             </h4>
 
             <button class="btn btn-dark">
@@ -18,7 +18,7 @@
 
             <div class="card-header bg-white py-3 border-0">
                 <h5 class="mb-0 fw-bold text-dark">
-                    All Contact Messages
+                    All Students Information
                 </h5>
             </div>
 
@@ -36,43 +36,39 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
                                 <th>Email</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Department</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
 
                         <tbody>
 
-                            @foreach ($contact as $con)
+                            @foreach ($student as $students)
 
                                 <tr>
-                                    <td>{{ $con->id }}</td>
+                                    <td>{{ $students->id }}</td>
 
                                     <td>
-                                        <i class="bi bi-person-fill text-primary"></i>
-                                        {{ $con->name }}
+                                        
+                                        {{ $students->firstname }}
                                     </td>
 
-                                    <td>{{ $con->email }}</td>
+                                    <td>{{ $students->lastname }}</td>
 
-                                    <td>
-                                        <span class="badge bg-primary">
-                                            {{ $con->subject }}
-                                        </span>
-                                    </td>
+                                    <td>{{ $students->email }}</td>
 
-                                    <td>{{ $con->message }}</td>
+                                    <td>{{ $students->department }}</td>
 
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
-                                            <a href="/contact-edit/{{ $con->id }}/edit" class="btn btn-sm btn-outline-primary">
+                                            <a href="/students/{{ $students->id }}/edit" class="btn btn-sm btn-outline-primary">
                                                 <i class="bi bi-pencil-square"></i> Edit
                                             </a>
 
-                                            <form action="/contact/{{ $con->id }}" method="POST"
+                                            <form action="/students/{{ $students->id }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this message?');">
                                                 @csrf
                                                 @method('DELETE')

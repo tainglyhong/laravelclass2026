@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,8 +50,12 @@ Route::get('/form', [FormController::class, 'create']);
 Route::post('/form/store', [FormController::class, 'store']);
 
 // Contact
-Route::get('/dashboard-contact', [ContactController::class, 'index']);
+Route::get('/contact-table', [ContactController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'create']);
-
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/contact-edit/{id}/edit', [ContactController::class, 'edit']);
+Route::put('/contact/{id}/', [ContactController::class, 'update']);
+Route::delete('/contact/{id}', [ContactController::class, 'destroy']);
 
+// students
+Route::resource('students', StudentController::class);
